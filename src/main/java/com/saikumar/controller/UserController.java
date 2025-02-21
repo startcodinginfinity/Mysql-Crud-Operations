@@ -19,6 +19,8 @@ import com.saikumar.dto.UserDto;
 import com.saikumar.entity.User;
 import com.saikumar.service.UserService;
 
+import jakarta.validation.Valid;
+
 
 
 @RestController
@@ -30,7 +32,7 @@ public class UserController {
 	
 	@PostMapping("/save")
 	@Transactional
-	public ResponseEntity<?> saveData(@RequestBody User user){
+	public ResponseEntity<?> saveData(@RequestBody @Valid User user){
 		
 	    userService.saveData(user);
 		

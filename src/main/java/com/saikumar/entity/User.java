@@ -5,6 +5,9 @@ import jakarta.persistence.GeneratedValue;
 import jakarta.persistence.GenerationType;
 import jakarta.persistence.Id;
 import jakarta.persistence.Table;
+import jakarta.validation.constraints.NotBlank;
+import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Getter;
@@ -26,14 +29,19 @@ public class User {
 	@GeneratedValue(strategy = GenerationType.IDENTITY)
 	private int id;
 	
+	@NotBlank(message = "Name cannot be Empty")
 	private String name;
 	
+	@NotBlank(message = "Address cannot be blank")
 	private String address;
 	
-	private long salary;
+	@NotNull(message = "address cannot be null")
+	private Long salary;
 	
-	private int age;
+	@NotNull(message = "age cannot be zero")
+	private Integer age;
 	
+	@NotBlank(message = "mobileNo cannot be left as Number")
 	private String mobileNo;
 
 }
